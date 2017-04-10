@@ -12,17 +12,17 @@ $post = (!empty($_POST)) ? true : false;
 if($post)
 {
 
-$name = stripslashes($_POST['name']);
-$email = trim($_POST['email']);
-$phone = stripslashes($_POST['phone']);
-$facebook = stripslashes($_POST['facebook']);
+$name = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$facebook = $_POST['facebook'];
 
 
 $error = '';
 
 if(!$error)
 {
-$mail = mail(ecoschool@zpspace.com.ua, "Заявка на участь в екологічній школі", "Хочу навчатись",
+$mail = mail("ecoschool@zpspace.com.ua", "Заявка на участь в екологічній школі", "Хочу навчатись",
      "From: ".$name." <".$email.">\r\n"
     ."Reply-To: ".$email."\r\n"
     ."X-Mailer: PHP/" . phpversion());

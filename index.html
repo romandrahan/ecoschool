@@ -143,7 +143,7 @@
 			<div class="row">
 
 
-				<h3><bold>ЗАНЯТТЯ В ЕКОШКОЛІ БУДУТЬ ПРОХОДИТИ  У  ТРАВНІ 2017 РОКУ  <br> У ПРИМІЩЕННІ ІНФОРМАЦІЙНОГО ЦЕНТРУ «РОЗВИТОК» (ВУЛ. _________). БЕЗКОШТОВНО.</bold></h3>
+				<h3><bold>ЗАНЯТТЯ В ЕКОШКОЛІ БУДУТЬ ПРОХОДИТИ  У  ТРАВНІ 2017 РОКУ  <br> У ПРИМІЩЕННІ ІНФОРМАЦІЙНОГО ЦЕНТРУ «РОЗВИТОК» (вул. Сталеварів, 21а, офісне приміщення в торці житлового будинку). БЕЗКОШТОВНО.</bold></h3>
 				<br>
 				<br>
 				<h3>ОРГАНІЗАТОРИ</h3>
@@ -183,7 +183,7 @@
 			<br>
 				<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
-					<button class="btn btn-lg btn-success" style="width: 85%"  data-toggle="modal" data-target="#myModal">ПОДАТИ ЗАЯВКУ</button>
+					<button class="btn btn-lg btn-success" style="width: 85%"  data-toggle="modal" data-target="#contactModal">ПОДАТИ ЗАЯВКУ</button>
 				</div>
 			</div>
 			<br>
@@ -216,39 +216,38 @@
 					</p>
 				</div>
 
-				<div class="col-lg-3 team">
-					<img class="img-circle" src="assets/img/team02.jpg" height="90" width="90">
-					<h4>Brad Casey</h4>
-					<h5><i>...</i></h5>
-
+				<div class="col-lg-2 team">
+					<img class="img-circle" src="assets/img/jan.jpg" height="90" width="90">
+					<h4>Ян Корольов</h4>
+					<h5><i>Депутат обласної ради</i></h5>
 					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-
-
+						<a href="https://www.facebook.com/profile.php?id=100006840105059"><i class="icon-facebook"></i></a>
 					</p>
 				</div>
 
-				<div class="col-lg-3 team">
+				<div class="col-lg-2 team">
+					<img class="img-circle" src="assets/img/team04.jpg" height="90" width="90">
+					<h4>Стояновський Олексій</h4>
+					<h5><i>Фахівець з системного аналізу</i></h5>
+					<p>
+						<a href="https://www.facebook.com/alexei.stoyanovsky?ref=ts&fref=ts"><i class="icon-facebook"></i></a>
+					</p>
+				</div>
+				<div class="col-lg-2 team">
+					<img class="img-circle" src="assets/img/olya.jpg" height="90" width="90">
+					<h4>Столяренко Тетяна</h4>
+					<h5><i>Фахіваць зі стратегічного планування та сталого розвитку</i></h5>
+					<p>
+						<a href="https://www.facebook.com/ecolog.tk"><i class="icon-facebook"></i></a>
+					</p>
+				</div>
+
+				<div class="col-lg-2 team">
 					<img class="img-circle" src="assets/img/olya.jpg" height="90" width="90">
 					<h4>Сладкова Ольга</h4>
 					<h5><i>Громадський активіст</i></h5>
-
 					<p>
 						<a href="https://www.facebook.com/sladkova.olga"><i class="icon-facebook"></i></a>
-
-
-					</p>
-				</div>
-
-				<div class="col-lg-3 team">
-					<img class="img-circle" src="assets/img/team04.jpg" height="90" width="90">
-					<h4>Tim Gates</h4>
-					<h5><i>...</i></h5>
-
-					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-
-
 					</p>
 				</div>
 			</div>
@@ -297,7 +296,7 @@
     <script src="assets/js/smoothscroll.js"></script>
 	<script src="assets/js/main.js"></script>
 
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -345,12 +344,14 @@
 </html>
 <script>
 	$(function () {
-        $('form.contactForm').submit(function() {
+        $('form.contactForm').submit(function(evt) {
+            evt.preventDefault();
             $.ajax({
                 type: "POST",
                 url: "contact.php",
                 data: $(this).serialize(),
                 success: function () {
+                    $("#contactModal").modal('hide');
                 }
             });
         })

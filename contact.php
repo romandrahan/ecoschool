@@ -22,7 +22,7 @@ $error = '';
 
 if(!$error)
 {
-$mail = mail("ecoschool@zpspace.com.ua", "Заявка на участь в екологічній школі", "Хочу навчатись",
+$mail = mail("ecoschool@zpspace.com.ua", "Заявка на участь в екологічній школі", "Хочу навчатись" .$facebook,
      "From: ".$name." <".$email.">\r\n"
     ."Reply-To: ".$email."\r\n"
     ."X-Mailer: PHP/" . phpversion());
